@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Bio 414 Lecture Notes 12</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="/theme/css/main.css" type="text/css" />
+   
+
+        <!--[if IE]>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lte IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="/css/ie.css"/>
+                <script src="/js/IE8.js" type="text/javascript"></script><![endif]-->
+
+        <!--[if lt IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="/css/ie6.css"/><![endif]-->
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="">Commonplace Book </a></h1>
+                <nav><ul>
+                    <li ><a href="/category/blog.html">Blog</a></li>
+                    <li class="active"><a href="/category/lecture-notes.html">Lecture Notes</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="bio-414-lecture-notes-12.html" rel="bookmark"
+           title="Permalink to Bio 414 Lecture Notes 12">Bio 414 Lecture Notes 12</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2015-02-12T00:00:00+01:00">
+                Thu 12 February 2015
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/cao-chau-vu.html">Cao-chau Vu</a>
+        </address>
+<p>In <a href="/category/lecture-notes.html">Lecture Notes</a>. </p>
+</footer><!-- /.post-info -->      <p>20150212_140000_bio_414_lecture_notes </p>
+<h1>Notes</h1>
+<h2>MLE Review</h2>
+<p>The MLE method find parameter(s) that maximize the probability of observed data. </p>
+<p>Let's say we fix the phylogeny and keep only transition/ transversion ratio as free parameter (Kimura model), the maximum likelihood estimation will kind of look like a parabola. Where the maximum point is the MLE transition/ transversion ratio. In example it's about 5. </p>
+<p>However, there is a drawback of the need to specify the model correctly. </p>
+<h2>Evaluating Phylogenetic Methods</h2>
+<p>Since we rarely will know the true phylogeny, we use simulations to evaluate phylogenetic reconstruction algorithms. We can use models of molecular evolution to create this simulation.The model would do many simulations and count how many times the simulation matched our estimated model. </p>
+<p>The longer the sequence, the higher the probability that the model will simulate our estimated phylogeny. This doesn't hold true for unweighted parsimony however,  also recall that UPGMA doesn't do well with non-ultrametric trees so if it's a non-ultrametric tree then the probability will also decrease with increasing sequence length. </p>
+<h2>Bootstrap</h2>
+<h4>Question</h4>
+<p>How do we now how much of the estimated phylogeny is due to sampling error?</p>
+<p>E.g. Drift, random mutations that aren't relevant, other genetic noise.</p>
+<h4>Solution</h4>
+<p>We want to "re-run" the evolution using the true phylogeny, but since we don't know the true phylogeny that's technically impossible. What we can do instead is to create two pseudoreplicates. </p>
+<p>Example below with trees made by parsimony (though you can have different models used)</p>
+<p><strong>Original Alignment</strong></p>
+<blockquote>
+<p>AATCC</p>
+<p>AATTC</p>
+<p>ACTCT</p>
+<p>ACGTT</p>
+</blockquote>
+<p>Parsimony Propose Tree: ((1,2),(3,4))</p>
+<p><strong>Bootstrap Replicate 1</strong></p>
+<blockquote>
+<p>TATCC</p>
+<p>TATCC</p>
+<p>TCTTT</p>
+<p>GCGTT</p>
+</blockquote>
+<p>Parsimony Propose Tree: ((1,2),(3,4))</p>
+<p><strong>Bootstrap Replicate 2</strong></p>
+<blockquote>
+<p>CCCAA</p>
+<p>CTTAA</p>
+<p>TCCAA</p>
+<p>TTTAA</p>
+</blockquote>
+<p>Parsimony Propose Tree: ((1,3),(2,4))</p>
+<p>So here we see bootstrap replicate 1 simulates a similar tree to our original one whereas bootstrap replicate 2 doesn't. If we have enough replicates agree with our original (90%&lt;), then we can say our original tree is most likely right. </p>
+<p>Assuming that the alignment sites are independent and follow the same model, bootstraps allow us to prescribe to sample sites with replacement (meaning to resample a site multiple times) to form fake alignments that match the number of sites of the original alignment. </p>
+<p>For each replicate, we can use our own chosen phylogenetic method to reconstruct phylogeny (so instead of parsimony above we can use other). One thing to think about is that if we use genetic distance method, we would need to reconstruct the genetic distance each time, so it's computationally expensive. Similarities among phylogenies tells us about the <strong>precision</strong> of our phylogenetic estimation. We have high confidence in parts of the phylogeny that reappear often (have high bootstrap #, &gt;90%). </p>
+<p>If our distribution of pseudoreplicates means closely matches our sample mean, then we can have a high confidence interval and can more strongly say our phylogeny closely matches true phylogeny. </p>
+<h4>What do we do with these estimates?</h4>
+<p>We take our estimated phylogeny (from real data) and "decompose" it into <strong>splits</strong>. We only make splits for internal nodes, not terminal nodes.</p>
+<p>For example, with an unrooted tree with two internal nodes each with two terminal nodes (1,2) and (3,4) and one separate terminal node (5), there are two possible splits.</p>
+<p>[((1,2),(3,4,5))\ and\ ((1,2,5),(3,4))]</p>
+<p>We compute splits bootstrap frequency and map them back on the estimated phylogeny. We can have different bootstrap probabilities for each:</p>
+<p>((1,2),(3,4,5)) - 90%</p>
+<p>((1,2,5),(3,4)) - 60%</p>
+<p>What if our estimated phylogeny has only low frequency splits?</p>
+<p>Then we can't say we have high confidence in our phylogenetic tree. We want to map uncertainty on to a "central" bootstrap tree. Where <strong>central</strong> usually means <strong>majority consensus tree</strong>. </p>
+<ol>
+<li>Decompose each tree in a (bootstrap) sample of trees into splits.</li>
+<li>Make a list of splits with a frequency of $\geq 50 \%$. </li>
+<li>Make a new tree with list of splits. That's how you get internal nodes with more than two child nodes. </li>
+</ol>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
