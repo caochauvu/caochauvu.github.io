@@ -51,19 +51,19 @@
 <p><strong>Objective:</strong> Find a match to the query sequence in database.</p>
 <p>We don't want to align to all sequences, it's unrealistic with how large databases are. Instead BLAST uses clever heuristics to filter out insignificant results.</p>
 <h3>BLAST Output</h3>
-<p><strong>Raw score</strong> = $\sum$ = match + mismatch - gap score </p>
+<p><strong>Raw score</strong> = <span class="math">\(\sum\)</span> = match + mismatch - gap score </p>
 <ul>
 <li>This is what we did in last lecture.</li>
 </ul>
 <p><strong>Bit Score:</strong> A normalized raw score.</p>
 <p><strong>E-value:</strong> Most important quantity to determine significance of the best database hits.</p>
 <ul>
-<li>Expected # of database sequences that will match a random query sequence with a score $\geq S^{*}$ (observed score). </li>
+<li>Expected # of database sequences that will match a random query sequence with a score <span class="math">\(\geq S^{*}\)</span> (observed score). </li>
 </ul>
-<p>[\frac{n_{1}+n_{2}+...+n_{1000}}{1000}]</p>
+<div class="math">$$\frac{n_{1}+n_{2}+...+n_{1000}}{1000}$$</div>
 <ul>
-<li>Count the # of sequences that $\geq S^{*}$. </li>
-<li>Higher $S^{*} \rightarrow$ lower E-value. </li>
+<li>Count the # of sequences that <span class="math">\(\geq S^{*}\)</span>. </li>
+<li>Higher <span class="math">\(S^{*} \rightarrow\)</span> lower E-value. </li>
 <li>Random sequences of the same length as the query sequence.</li>
 <li>In practice, 10^-5 is the threshold for E-value significance.</li>
 </ul>
@@ -76,49 +76,87 @@
 <p>Sequence 2: A C C <strong>T</strong> T T T <strong>G</strong> C T </p>
 </blockquote>
 <p>Take notice how the bold letters are mismatches between the two sequences.</p>
-<p><strong>Hamming distance</strong> ($D$) takes the # of sites where sequences have different nucleotides and divide it by total # of sites. For the example above:</p>
-<p>[D = \frac{2}{10} = .2]</p>
+<p><strong>Hamming distance</strong> (<span class="math">\(D\)</span>) takes the # of sites where sequences have different nucleotides and divide it by total # of sites. For the example above:</p>
+<div class="math">$$D = \frac{2}{10} = .2$$</div>
 <p>The problem with this method arise when you start considering evolutionary relationships and ancestors. We can illustrate this with one polymorphic site.</p>
 <p>Suppose you have three scenarios (a, b, c) where you have an ancestor and two descendants. Let ancestor be sequence 0, and the descendants are sequence 1 and 2. </p>
 <p><strong>a)</strong> Single Substitution</p>
 <ul>
 <li>Ancestor: A</li>
 <li>Descendants T, A</li>
-<li>A $\rightarrow$ T</li>
+<li>A <span class="math">\(\rightarrow\)</span> T</li>
 </ul>
 <p>What's the math for this scenario?</p>
-<p>[D_{12}=1]
-[D_{01}=1]
-[D_{02}=0]</p>
-<p>From the math, we would predict that $D_{12} = D_{01} + D_{02}$. And it make sense for phylogenetic trees. Can we see if this apply to other scenarios?</p>
+<div class="math">$$D_{12}=1$$</div>
+<div class="math">$$D_{01}=1$$</div>
+<div class="math">$$D_{02}=0$$</div>
+<p>From the math, we would predict that <span class="math">\(D_{12} = D_{01} + D_{02}\)</span>. And it make sense for phylogenetic trees. Can we see if this apply to other scenarios?</p>
 <p><strong>b)</strong> Multiple Substitution</p>
 <ul>
 <li>Ancestor: C</li>
 <li>Descendants: A, T</li>
-<li>C $\rightarrow$ A, C $\rightarrow$ T</li>
+<li>C <span class="math">\(\rightarrow\)</span> A, C <span class="math">\(\rightarrow\)</span> T</li>
 </ul>
 <p>What's the math for this? </p>
-<p>[D_{12}=1]
-[D_{01}=1]
-[D_{02}=1]</p>
-<p>Here we see $D_{12} \neq D_{01} + D_{02}$</p>
+<div class="math">$$D_{12}=1$$</div>
+<div class="math">$$D_{01}=1$$</div>
+<div class="math">$$D_{02}=1$$</div>
+<p>Here we see <span class="math">\(D_{12} \neq D_{01} + D_{02}\)</span></p>
 <p>We don't even need a polymorphic site for this phenomenon to occur: </p>
 <p><strong>c)</strong> Parallel Substitutions</p>
 <ul>
 <li>Ancestor: C</li>
 <li>Descendants: T, T</li>
-<li>C $\rightarrow$ T, C $\rightarrow$ T</li>
+<li>C <span class="math">\(\rightarrow\)</span> T, C <span class="math">\(\rightarrow\)</span> T</li>
 </ul>
 <p>The math for this is: </p>
-<p>[D_{12}=0]
-[D_{01}=1]
-[D_{02}=1]</p>
+<div class="math">$$D_{12}=0$$</div>
+<div class="math">$$D_{01}=1$$</div>
+<div class="math">$$D_{02}=1$$</div>
 <p>What we can gleam from this is that Hamming distance is not additive, so it's not the best value we can use to describe evolutionary distance with evolutionary tress/ phylogenies. </p>
 <h3>Model Base Distance</h3>
 <ul>
 <li>Substitutions are modeled using a Markov stochastic process.</li>
 <li>This means that you can stop the process at any time, you would need only the current state and not the full history to continue running the process. </li>
 </ul>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+    
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
     </div><!-- /.entry-content -->
 
   </article>

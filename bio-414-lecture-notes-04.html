@@ -122,16 +122,16 @@
 </blockquote>
 <p>We have 5 matches, 2 mismatches and 1 gap, so 5-1+0 = 4. 4&gt;3 so alignment 3 is better than alignment 1 by our algorithm.</p>
 <p>Sequence alignment score is the sum of all aligned gaps subtracted from the sum of all aligned pairs:</p>
-<p><strong>Sequence alignment score</strong> = $\sum S(a,b) - \sum w(l)$</p>
+<p><strong>Sequence alignment score</strong> = <span class="math">\(\sum S(a,b) - \sum w(l)\)</span></p>
 <ul>
 <li>Linear gap penalty function however is unrealistic, because gaps next to each other are not independent (for example slippage event due to RNA polymerase skipping multiple bases at once).</li>
 <li>A modification would be to penalize one large gaps less than multiple small gaps of the same total length.</li>
 </ul>
-<p>[w(l) = g_open + g_ext (l-1)]</p>
-<p>where $g_{ext} &lt; g_{open}$</p>
+<div class="math">$$w(l) = g_{open} + g_{ext} (l-1)$$</div>
+<p>where <span class="math">\(g_{ext} &lt; g_{open}\)</span></p>
 <ul>
-<li>$g_{open}$ = gap opening penalty, which is the penalty for being the first letter of a gap.</li>
-<li>$g_{ext}$ = gap extension penalty, which is a smaller penalty for lengths larger than 1.</li>
+<li><span class="math">\(g_{open}\)</span> = gap opening penalty, which is the penalty for being the first letter of a gap.</li>
+<li><span class="math">\(g_{ext}\)</span> = gap extension penalty, which is a smaller penalty for lengths larger than 1.</li>
 </ul>
 <h2>Alignment Scoring</h2>
 <p>Check out both the bolded terms immediately below</p>
@@ -160,6 +160,44 @@
 </ul>
 </li>
 </ul>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+    
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
     </div><!-- /.entry-content -->
 
   </article>

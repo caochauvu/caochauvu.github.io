@@ -50,33 +50,33 @@
 <p>Counting polymorphic sites (Hamming distance) doesn't work because we don't observe substitutions. </p>
 <p>We can observe changes, but not the process that resulted in that change. For all the below example, assumes one ancestor and two descendants that might have a changed base or not.</p>
 <ul>
-<li>Single substitution: 1 change (A $\rightarrow$ C), 1 difference. <ul>
+<li>Single substitution: 1 change (A <span class="math">\(\rightarrow\)</span> C), 1 difference. <ul>
 <li>Ancestor: A</li>
 <li>Descendants: A, C</li>
 </ul>
 </li>
-<li>Multiple substitution: 2 changes (A $\rightarrow$ C $\rightarrow$ T) 1 difference. <ul>
+<li>Multiple substitution: 2 changes (A <span class="math">\(\rightarrow\)</span> C <span class="math">\(\rightarrow\)</span> T) 1 difference. <ul>
 <li>Ancestor: A</li>
 <li>Descendants: A, T</li>
 <li>Keep in mind that there could be more than 2 changes, we can't observe them without other data.</li>
 </ul>
 </li>
-<li>Coincidental substitution: 2 changes (A $\rightarrow$ G, A $\rightarrow$ C), 1 difference.<ul>
+<li>Coincidental substitution: 2 changes (A <span class="math">\(\rightarrow\)</span> G, A <span class="math">\(\rightarrow\)</span> C), 1 difference.<ul>
 <li>Ancestor: A</li>
 <li>Descendants: G, C</li>
 </ul>
 </li>
-<li>Parallel substitution: 2 changes (A $\rightarrow$ C, A $\rightarrow$ C), no difference.<ul>
+<li>Parallel substitution: 2 changes (A <span class="math">\(\rightarrow\)</span> C, A <span class="math">\(\rightarrow\)</span> C), no difference.<ul>
 <li>Ancestor: A</li>
 <li>Descendants: C, C</li>
 </ul>
 </li>
-<li>Convergent substitution: 3 changes (A $\rightarrow$ C $\rightarrow$ T, A $\rightarrow$ T), no difference.<ul>
+<li>Convergent substitution: 3 changes (A <span class="math">\(\rightarrow\)</span> C <span class="math">\(\rightarrow\)</span> T, A <span class="math">\(\rightarrow\)</span> T), no difference.<ul>
 <li>Ancestor: A</li>
 <li>Descendants: T, T </li>
 </ul>
 </li>
-<li>Back substitution: 2 changes (A $\rightarrow$ C $\rightarrow$ A), no difference. <ul>
+<li>Back substitution: 2 changes (A <span class="math">\(\rightarrow\)</span> C <span class="math">\(\rightarrow\)</span> A), no difference. <ul>
 <li>Ancestor: A</li>
 <li>Descendants: A, A</li>
 </ul>
@@ -102,73 +102,73 @@
 <tbody>
 <tr>
 <td>A</td>
-<td align="center">$-3\alpha$</td>
-<td align="center">$\alpha$</td>
-<td align="center">$\alpha$</td>
-<td align="center">$\alpha$</td>
+<td align="center"><span class="math">\(-3\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
 </tr>
 <tr>
 <td>G</td>
-<td align="center">$\alpha$</td>
-<td align="center">$-3\alpha$</td>
-<td align="center">$\alpha$</td>
-<td align="center">$\alpha$</td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(-3\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
 </tr>
 <tr>
 <td>C</td>
-<td align="center">$\alpha$</td>
-<td align="center">$\alpha$</td>
-<td align="center">$-3\alpha$</td>
-<td align="center">$\alpha$</td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(-3\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
 </tr>
 <tr>
 <td>T</td>
-<td align="center">$\alpha$</td>
-<td align="center">$\alpha$</td>
-<td align="center">$\alpha$</td>
-<td align="center">$-3\alpha$</td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(-3\alpha\)</span></td>
 </tr>
 </tbody>
 </table>
 <p>The rows must sum up to zero by convention.</p>
 <p>Matrix defines model. Expected # of substitution is:</p>
-<p>[d = \frac{1}{4} \cdot 3(\alpha) \cdot 2t \cdot 4]</p>
+<div class="math">$$d = \frac{1}{4} \cdot 3(\alpha) \cdot 2t \cdot 4$$</div>
 <ul>
-<li>$d$ is genetic distance.</li>
-<li>$\frac{1}{4}$ is initial base frequency (assuming equal base frequency)</li>
-<li>$3(\alpha)$ is summing over ending state.</li>
-<li>$2t$ is total amount of time (between ancestor and descendants)</li>
-<li>$4$ is summing over initial state.</li>
+<li><span class="math">\(d\)</span> is genetic distance.</li>
+<li><span class="math">\(\frac{1}{4}\)</span> is initial base frequency (assuming equal base frequency)</li>
+<li><span class="math">\(3(\alpha)\)</span> is summing over ending state.</li>
+<li><span class="math">\(2t\)</span> is total amount of time (between ancestor and descendants)</li>
+<li><span class="math">\(4\)</span> is summing over initial state.</li>
 </ul>
 <p>Simplifying the formula we get: </p>
-<p>[d=6 \alpha t]</p>
+<div class="math">$$d=6 \alpha t$$</div>
 <p>However we don't know what alpha and t is yet, we need to extract from the data we have so far.</p>
 <p>We know how to compute the probability that a given site is polymorphic vs not polymorphic: </p>
-<p>[P_{xy}(\alpha,t)=\frac{3}{4}(1-e^{-8 \alpha t})]</p>
+<div class="math">$$P_{xy}(\alpha,t)=\frac{3}{4}(1-e^{-8 \alpha t})$$</div>
 <p>What if we wanted it of changing from from one base to itself, you divide by 3:</p>
-<p>[P_{xy}(\alpha,t)=\frac{1}{4}(1-e^{-8 \alpha t})]</p>
-<p>Let's go back to any sites though. Suppose we have $n$ sites. What is the expected # of polymorphic sites under the Jukes-Cantor model?</p>
-<p>[n<em>P_{xy}(\alpha,t) = n</em>(3/4)(1-e^{-8 \alpha t})]</p>
+<div class="math">$$P_{xy}(\alpha,t)=\frac{1}{4}(1-e^{-8 \alpha t})$$</div>
+<p>Let's go back to any sites though. Suppose we have <span class="math">\(n\)</span> sites. What is the expected # of polymorphic sites under the Jukes-Cantor model?</p>
+<div class="math">$$n*P_{xy}(\alpha,t) = n*(3/4)(1-e^{-8 \alpha t})$$</div>
 <p>What is the frequency of polymorphic site?</p>
 <p>We would just cancel n if we wanted frequency, so it's </p>
-<p>[P_{xy}(\alpha,t)=\frac{3}{4}(1-e^{-8 \alpha t})]</p>
+<div class="math">$$P_{xy}(\alpha,t)=\frac{3}{4}(1-e^{-8 \alpha t})$$</div>
 <p>Let's match observed (D) and theoretical expectations of this frequency: </p>
-<p>[D = \frac{3}{4}(1-e^{-8 \alpha t})]</p>
-<p>We need to solve for $(\alpha)t$: </p>
-<p>[\hat{\alpha(t)} \sim \frac{1}{8}\ln(1-\frac{4}{3}D)]</p>
+<div class="math">$$D = \frac{3}{4}(1-e^{-8 \alpha t})$$</div>
+<p>We need to solve for <span class="math">\((\alpha)t\)</span>: </p>
+<div class="math">$$\hat{\alpha(t)} \sim \frac{1}{8}\ln(1-\frac{4}{3}D)$$</div>
 <p>This will let us figure out what the product (alpha)t is. It won't let us figure out the individual values, but the product is all we need to calculate.</p>
-<p>Plugging the $(\alpha)t$ back into our formula for d:</p>
-<p>[d = 6 \alpha t \Rightarrow  \hat{d} = 6 \hat{\alpha(t)} = \frac{6}{8}\ln(1-\frac{4}{3}D)]</p>
+<p>Plugging the <span class="math">\((\alpha)t\)</span> back into our formula for d:</p>
+<div class="math">$$d = 6 \alpha t \Rightarrow  \hat{d} = 6 \hat{\alpha(t)} = \frac{6}{8}\ln(1-\frac{4}{3}D)$$</div>
 <p>Simplifying into: </p>
-<p>[\hat{d} = \frac{3}{4}\ln(1-\frac{4}{3}D)]</p>
+<div class="math">$$\hat{d} = \frac{3}{4}\ln(1-\frac{4}{3}D)$$</div>
 <p>This equation is also known as the Jukes-Cantor distance (correction).</p>
 <p>There however is an issue in that our expected difference and observed difference will diverge, with the expected difference continuing upward while the observed difference will flattened out. The difference between the two is the "correction". </p>
 <p>There are two difference ways to vary the model, then one that combines both and one that takes it further.</p>
 <ul>
 <li><strong>Kimura 2 Parameter (K2P)</strong><ul>
 <li>Allows for transition/ transversion bias.</li>
-<li>Maybe A prefers to turn into G more than it does C/T. That is $(\alpha) &gt; (\beta)$.</li>
-<li>The diagonal would not necessarily be equal to $-3(\alpha)$, it would instead be equal to $-(\alpha) + 2(\beta)$.</li>
+<li>Maybe A prefers to turn into G more than it does C/T. That is <span class="math">\((\alpha) &gt; (\beta)\)</span>.</li>
+<li>The diagonal would not necessarily be equal to <span class="math">\(-3(\alpha)\)</span>, it would instead be equal to <span class="math">\(-(\alpha) + 2(\beta)\)</span>.</li>
 </ul>
 </li>
 <li><strong>Felsenstein(P81)</strong><ul>
@@ -184,9 +184,47 @@
 <li>Allow for all six pairs of substitutions to have different rates in addition to the HKY85.</li>
 </ul>
 </li>
-<li>Each of the above models has an evolutionary distance associated with that model: $d_{JC}$, $d_{K2P}$, $d_{F81}$, $d_{F84}$, $d_{HKY85}$, $d_{GTR}$, etc.</li>
+<li>Each of the above models has an evolutionary distance associated with that model: <span class="math">\(d_{JC}\)</span>, <span class="math">\(d_{K2P}\)</span>, <span class="math">\(d_{F81}\)</span>, <span class="math">\(d_{F84}\)</span>, <span class="math">\(d_{HKY85}\)</span>, <span class="math">\(d_{GTR}\)</span>, etc.</li>
 <li>F84 is the best because it has similar results to HKY85 and GTR but are easier to compute.</li>
 </ul>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+    
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
     </div><!-- /.entry-content -->
 
   </article>

@@ -49,7 +49,7 @@
 <h2>Distance-Based Phylogenetic Reconstruction Review and Background</h2>
 <p><strong>Bird's Eye View</strong></p>
 <blockquote>
-<p>Sequence Data $\rightarrow$ Distance Values $\rightarrow$ Phylogenetic Tree</p>
+<p>Sequence Data <span class="math">\(\rightarrow\)</span> Distance Values <span class="math">\(\rightarrow\)</span> Phylogenetic Tree</p>
 </blockquote>
 <p><strong>Clustering Methods</strong></p>
 <ul>
@@ -98,24 +98,62 @@
 </ul>
 <p>E.g. </p>
 <p>A tree with one root node and two internal nodes each with two terminal nodes (four descendants total) would be represented as:</p>
-<p>$$
+<div class="math">$$
 ((A,B),(C,D))
-$$</p>
+$$</div>
 <p>For one with one root node leading to one terminal and one internal node, of which that internal node has another terminal node and an internal node with two terminal node of its own, would be represented as:</p>
-<p>$$
+<div class="math">$$
 (((A,B),C),D)
-$$</p>
+$$</div>
 <p>Branch lengths can also be stored in the file format. Say we have a the same tree as the first example with different edge lengths (mutation rates) of .2, .1, .25, .05 respectively for A,B,C,D and an edge length of .3 and .21 respectively for the two internal nodes, it would be represented as:</p>
-<p>$$
+<div class="math">$$
 ((A:0.2,B:0.1):0.3,(C:0.25,D:0.05):0.21)
-$$</p>
+$$</div>
 <h2>Least-Squares Methods</h2>
-<p>For each candidate tree $\tau$, find branch length that minimizes </p>
-<p>[\sum_{i &lt; j} (d_{ij}-e_{ij})^2]</p>
-<p>We'll call this minimum $L(\tau)$. So our goal is to get the minimum $L(\tau)$.</p>
+<p>For each candidate tree <span class="math">\(\tau\)</span>, find branch length that minimizes </p>
+<div class="math">$$\sum_{i &lt; j} (d_{ij}-e_{ij})^2$$</div>
+<p>We'll call this minimum <span class="math">\(L(\tau)\)</span>. So our goal is to get the minimum <span class="math">\(L(\tau)\)</span>.</p>
 <h2>Minimum evolution</h2>
-<p>Same as in L-squared method, you find smallest $L(\tau)$</p>
+<p>Same as in L-squared method, you find smallest <span class="math">\(L(\tau)\)</span></p>
 <p>But now we are looking for trees with smallest # of evolutionary change overall.</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+    
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
     </div><!-- /.entry-content -->
 
   </article>

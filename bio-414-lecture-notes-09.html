@@ -48,12 +48,12 @@
 <h1>Notes</h1>
 <h2>Least Squares</h2>
 <ol>
-<li>For each candidate tree $\tau$, find branch length that minimizes:<ul>
-<li>$\sum_{i &lt; j} (d_{ij}-e_{ij})^2$</li>
-<li>Where $d_{ij}$ is the observed distance and $e_{ij}$ is the theoretical tree distance.</li>
+<li>For each candidate tree <span class="math">\(\tau\)</span>, find branch length that minimizes:<ul>
+<li><span class="math">\(\sum_{i &lt; j} (d_{ij}-e_{ij})^2\)</span></li>
+<li>Where <span class="math">\(d_{ij}\)</span> is the observed distance and <span class="math">\(e_{ij}\)</span> is the theoretical tree distance.</li>
 </ul>
 </li>
-<li>We call this minimum number $L(\tau)$. Then we find the small tree with the smallest $L(\tau)$</li>
+<li>We call this minimum number <span class="math">\(L(\tau)\)</span>. Then we find the small tree with the smallest <span class="math">\(L(\tau)\)</span></li>
 </ol>
 <h2>Minimum Evolution</h2>
 <ol>
@@ -63,7 +63,7 @@
 </ul>
 </li>
 </ol>
-<p>[\sum t_{i}]</p>
+<div class="math">$$\sum t_{i}$$</div>
 <p>Minimum evolution and least squares are both optimizing some objective function, making them easy to study theoretically. </p>
 <h2>Distance Based Phylogeny</h2>
 <p><strong>Q:</strong> Is searching trees when optimizing an objective function easy?</p>
@@ -86,16 +86,16 @@
 </ol>
 <p><strong>Most phylogenetic analyses look like this:</strong></p>
 <blockquote>
-<p>Unaligned Sequences $\rightarrow$ Guide Tree $\rightarrow$ Aligned Sequences $\rightarrow$ Final Tree</p>
+<p>Unaligned Sequences <span class="math">\(\rightarrow\)</span> Guide Tree <span class="math">\(\rightarrow\)</span> Aligned Sequences <span class="math">\(\rightarrow\)</span> Final Tree</p>
 </blockquote>
 <p>The problem lies in that the final tree is often too close to the guide tree. So if your guide tree is incorrect, your final tree will be too. a better approach is simultaneous alignment and phylogeny estimation, but this is computationally expensive.</p>
 <h2>Maximum Parsimony</h2>
 <p>Each site receives a score under each tree. Score is defined as minimum # of substitutions required to explain site data.</p>
 <p>Imagine an unrooted tree like so:</p>
-<p>[((A,A), (G,G))]</p>
-<p>The most parsimonious tree would be 1. Either A $\rightarrow$ G, or G $\rightarrow$ A.</p>
+<div class="math">$$((A,A), (G,G))$$</div>
+<p>The most parsimonious tree would be 1. Either A <span class="math">\(\rightarrow\)</span> G, or G <span class="math">\(\rightarrow\)</span> A.</p>
 <p>What if instead you have: </p>
-<p>[(A,G), (A,G)]</p>
+<div class="math">$$(A,G), (A,G)$$</div>
 <p>The most parsimonious tree would be have a score of 2, we can have both internal node be A or G, and two changes of either A-&gt;G or G-&gt;A respectively.</p>
 <p>Parsimony reconstruction returns a tree with the minimum overall parsimony score.</p>
 <p>Suppose we have the sequence below, with 3 possible unrooted trees.</p>
@@ -146,7 +146,7 @@
 </tbody>
 </table>
 <p>There are three possible unrooted tree, with separate parsimony score:</p>
-<p>[Tree\ 1 = ((1,2),(3,4)]</p>
+<div class="math">$$Tree\ 1 = ((1,2),(3,4)$$</div>
 <table>
 <thead>
 <tr>
@@ -202,7 +202,7 @@
 </tbody>
 </table>
 <p>Total parsimony score is 5.</p>
-<p>[Tree\ 2 = ((1,3),(2,4)]</p>
+<div class="math">$$Tree\ 2 = ((1,3),(2,4)$$</div>
 <table>
 <thead>
 <tr>
@@ -258,7 +258,7 @@
 </tbody>
 </table>
 <p>Total parsimony score is 6.</p>
-<p>[Tree\ 3 = ((1,4),(2,3)]</p>
+<div class="math">$$Tree\ 3 = ((1,4),(2,3)$$</div>
 <table>
 <thead>
 <tr>
@@ -315,6 +315,44 @@
 </table>
 <p>Total parsimony score is 7. </p>
 <p>Out of all three trees, tree 1 has the lowest parsimony score, hence by parsimony, it is the most "correct" tree (the maximum parsimony tree).</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+    
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
     </div><!-- /.entry-content -->
 
   </article>

@@ -88,7 +88,7 @@
 <h4>What do we do with these estimates?</h4>
 <p>We take our estimated phylogeny (from real data) and "decompose" it into <strong>splits</strong>. We only make splits for internal nodes, not terminal nodes.</p>
 <p>For example, with an unrooted tree with two internal nodes each with two terminal nodes (1,2) and (3,4) and one separate terminal node (5), there are two possible splits.</p>
-<p>[((1,2),(3,4,5))\ and\ ((1,2,5),(3,4))]</p>
+<div class="math">$$((1,2),(3,4,5))\ and\ ((1,2,5),(3,4))$$</div>
 <p>We compute splits bootstrap frequency and map them back on the estimated phylogeny. We can have different bootstrap probabilities for each:</p>
 <p>((1,2),(3,4,5)) - 90%</p>
 <p>((1,2,5),(3,4)) - 60%</p>
@@ -96,9 +96,47 @@
 <p>Then we can't say we have high confidence in our phylogenetic tree. We want to map uncertainty on to a "central" bootstrap tree. Where <strong>central</strong> usually means <strong>majority consensus tree</strong>. </p>
 <ol>
 <li>Decompose each tree in a (bootstrap) sample of trees into splits.</li>
-<li>Make a list of splits with a frequency of $\geq 50 \%$. </li>
+<li>Make a list of splits with a frequency of <span class="math">\(\geq 50 \%\)</span>. </li>
 <li>Make a new tree with list of splits. That's how you get internal nodes with more than two child nodes. </li>
-</ol>                </article>
+</ol>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+    
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -194,12 +232,12 @@
 <h1>Notes</h1>
 <h2>Least Squares</h2>
 <ol>
-<li>For each candidate tree $\tau$, find branch length that minimizes:<ul>
-<li>$\sum_{i &lt; j} (d_{ij}-e_{ij})^2$</li>
-<li>Where $d_{ij}$ is the observed distance and $e_{ij}$ is the theoretical tree distance.</li>
+<li>For each candidate tree <span class="math">\(\tau\)</span>, find branch length that minimizes:<ul>
+<li><span class="math">\(\sum_{i &lt; j} (d_{ij}-e_{ij})^2\)</span></li>
+<li>Where <span class="math">\(d_{ij}\)</span> is the observed distance and <span class="math">\(e_{ij}\)</span> is the theoretical tree distance.</li>
 </ul>
 </li>
-<li>We call this minimum number $L(\tau)$. Then we find the small tree ...</li></ol>
+<li>We call this minimum number <span class="math">\(L(\tau)\)</span>. Then we find the small tree ...</li></ol>
                 <a class="readmore" href="/bio-414-lecture-notes-09.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
@@ -226,7 +264,7 @@
 <h2>Distance-Based Phylogenetic Reconstruction Review and Background</h2>
 <p><strong>Bird's Eye View</strong></p>
 <blockquote>
-<p>Sequence Data $\rightarrow$ Distance Values $\rightarrow$ Phylogenetic Tree</p>
+<p>Sequence Data <span class="math">\(\rightarrow\)</span> Distance Values <span class="math">\(\rightarrow\)</span> Phylogenetic Tree</p>
 </blockquote>
 <p><strong>Clustering Methods</strong></p>
 <ul>
@@ -277,35 +315,35 @@
 <tr>
 <td>A</td>
 <td align="center">-</td>
-<td align="center">$\alpha$</td>
-<td align="center">$\alpha$</td>
-<td align="center">$\alpha$</td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
 </tr>
 <tr>
 <td>G</td>
-<td align="center">$\alpha$</td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
 <td align="center">-</td>
-<td align="center">$\alpha$</td>
-<td align="center">$\alpha$</td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
 </tr>
 <tr>
 <td>C</td>
-<td align="center">$\alpha$</td>
-<td align="center">$\alpha$</td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
 <td align="center">-</td>
-<td align="center">$\alpha$</td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
 </tr>
 <tr>
 <td>T</td>
-<td align="center">$\alpha$</td>
-<td align="center">$\alpha$</td>
-<td align="center">$\alpha$</td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
 <td align="center">-</td>
 </tr>
 </tbody>
 </table>
 <p>Stationary/ limiting nucleotide frequencies: </p>
-<p>[\vec{\pi} = \frac{1}{4}, \frac{1}{4}, \frac{1}{4}, \frac{1}{4}]</p>
+<div class="math">$$\vec{\pi} = \frac{1}{4}, \frac{1}{4}, \frac{1}{4}, \frac{1}{4}$$</div>
 <h3>Kimura 2 Parameter Model (K2P)</h3>
 <table>
 <thead>
