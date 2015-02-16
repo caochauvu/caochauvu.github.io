@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  
+  <title>Bio 414 Lecture Notes 11</title>
+<link href="/theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/" type="application/atom+xml" rel="alternate" title="The Commonplace Index ATOM Feed" />
+  
+  <!--[if IE]>
+  <style type="text/css"> 
+  .twoColFixRtHdr #mainContent { zoom: 1; }
+  </style>
+  <![endif]-->
+
+</head>
+
+<body>
+
+<div id="container">
+
+  <div id="header">
+  <h1><a href="/index.html">The Commonplace Index</h1>
+  
+  </div><!-- end #header -->
+  
+  <div id="topMenu">
+  
+    <ul>
+    	<li><a href="/index.html">Home</a></li>
+        <li>&ndash;</li>
+        <li><a href="/archives.html">Archives</a></li>
+        
+    </ul>
+  
+  </div><!-- end #topMenu -->
+
+  <div id="sidebar">
+    <ul>
+	<li>
+	    <h3>Pages</h3>
+	    <ul>
+	    </ul>
+	</li>
+	<li>
+            <h3>Categories</h3>
+            <ul>
+		     <li ><a href="/category/blog.html">Blog</a></li>
+		     <li class="active"><a href="/category/lecture-notes.html">Lecture Notes</a></li>
+	    </ul>
+	</li>
+	<li>
+		<h3>Blogroll</h3>
+		<ul>
+                    <li><a href="http://getpelican.com/">Pelican</a></li>
+                    <li><a href="http://python.org/">Python.org</a></li>
+                    <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+		</ul>
+	</li>
+        <li>
+                <h3>Social</h3>
+                <ul>
+                    <li><a href="#">Maybe coming soon</a></li>
+                </ul>
+        </li><!-- /.social -->
+    </ul>
+  </div><!-- end #sidebar -->
+
+  <div id="mainContent">
+  	
+ 
+
+
+<div class="blogItem">
+    
+      <h2><a href="/bio-414-lecture-notes-11.html">Bio 414 Lecture Notes 11</a></h2>
+      <h3>Tue 10 February 2015</h3>
+      
+  <p>20150210_140000_bio_414_lecture_notes_11</p>
+<h1>Notes</h1>
+<p>Today is all about <strong>maximum likelihood phylogenetics</strong>. </p>
+<h2>Maximum Likelihood Phylogenetics Examples</h2>
+<h3>A 2 Taxa Case</h3>
+<p>If we have one ancestor (X, for having unknown base X) with two descendants (A,G) with corresponding time (<span class="math">\(t_{1}, t_{2}\)</span>), that is: </p>
+<div class="math">$$(A: t_{1}, G: t_{2})X$$</div>
+<p>The calculations would be like so: </p>
+<div class="math">$$
+L = 
+Pr \begin{pmatrix}
+A\\G 
+\end{pmatrix}
+= \pi_{X}P_{XA}(t_{1})P_{XG}(t_{2}) X \epsilon \{A,G,C,T\}
+$$</div>
+<p>Due to the model being time reversible, we know the above is equal to: </p>
+<div class="math">$$[reversible\ model] = \sum_{x}\pi_{A}P_{AX}(t_{1})P_{XG}(t_{2})$$</div>
+<p>Which after reducing is: </p>
+<div class="math">$$=\pi_{A}P_{AG}(t_{1}+t_{2}) = \pi_{G}P_{GA}(t_{1}+t_{2})$$</div>
+<p>The above derivation shows that the root is not identifiable. What that results in is trees that can have similar likelihood as long as total branch length is the same. E.g. even if you were to switch branch length (t_{1} and t_{2}), the tree would have same likelihood even if it can be said to be the opposite tree. An unrooted tree would also have the same likelihood (take notice last one is not in Newick's tree format). </p>
+<div class="math">$$(A: t_{1}, G: t_{2})X = (A: t'_{1}, G: t'_{2})X = \frac{t_{1}+t_{2}}{A\ \ \ \ \ \ \ \ \ \ \ G}$$</div>
+<p><strong>Q:</strong> How do we get terms like P_{AG}(t)?</p>
+<p><strong>A:</strong> THey are computable for a given substitution model. The one under the JC model would be: <span class="math">\(Pr_{AG} = \frac{1}{4} (1-e^{-4 \alpha t})\)</span></p>
+<h3>Likelihood of the Whole Alignment</h3>
+<p>That was just the 2 taxa case at one site, what if we wanted it for a whole alignment? </p>
+<div class="math">$$
+Pr\begin{pmatrix}
+A &amp; A &amp; C &amp; ... &amp; T\\ 
+G &amp; A &amp; C &amp; ... &amp; C 
+\end{pmatrix}
+= 
+\begin{pmatrix}
+A\\G 
+\end{pmatrix}
+*
+\begin{pmatrix}
+A\\A 
+\end{pmatrix}
+*
+\begin{pmatrix}
+C\\C 
+\end{pmatrix}
+*...
+*
+\begin{pmatrix}
+T\\C 
+\end{pmatrix}
+$$</div>
+<p>Because we can assume that sites evolve independently. In general an alignment likelihood is the product of the site likelihood (<span class="math">\(L_{i}\)</span>). </p>
+<div class="math">$$L = \sqcap^{n}_{i=1}L_{i} \Rightarrow lnL = \sum_{i} lnL_{i}$$</div>
+<h3>N-Taxa Case</h3>
+<p>What if we have a tree like so: </p>
+<div class="math">$$(A:t_{1},(G:t_{3},G:t_{4})Y:t_{2})X$$</div>
+<p>The calculations would be like so: </p>
+<div class="math">$$
+Pr\begin{pmatrix}
+A\\G \\G 
+\end{pmatrix}
+=
+\sum_{x}\sum_{y}pi_{X}P_{XA}(t_{1})P_{XY}(t_{2})P_{YG}(t_{3})P_{YG}(t_4)
+$$</div>
+<div class="math">$$= [time\ reversible] = \sum_{x}\sum_{y}pi_{A}P_{AX}(t_{1})P_{XY}(t_{2})P_{YG}(t_{3})P_{YG}(t_4)$$</div>
+<div class="math">$$= \sum_{y} \pi_{A} P_{AY}(t_{1}+t_{2}) P_{YG}(t_{3}) P_{YG}(t_4)$$</div>
+<div class="math">$$= \sum_{y} \pi_{Y} P_{YA}(t_{1}+t_{2}) P_{YG}(t_{3}) P_{YG}(t_4)$$</div>
+<p>Like with the 2 taxa case, the (t_{1}+t_{2}) shows that only the unrooted tree is identifiable. </p>
+<h2>Degrees of Freedom</h2>
+<p>In practice, we can constrain substitution matrices so that branches are kept identifiable. E.g. we can set <span class="math">\(\alpha = 1\)</span> in Jukes-Cantor model. It turns out that there is a more universal constant. </p>
+<div class="math">$$\sum_{x} \frac{1}{4}x(-3\alpha) = -1$$</div>
+<div class="math">$$\sum_{x} \pi_{x} q_{xx} = -1 d$$</div>
+<p>-1 x # of expected substitution of branch length ID. </p>
+<div class="math">$$Q = \{q_{xy}\}$$</div>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">A</th>
+<th align="center">G</th>
+<th align="center">C</th>
+<th align="center">T</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td align="center"><span class="math">\(-3\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+</tr>
+<tr>
+<td>G</td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(-3\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+</tr>
+<tr>
+<td>C</td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(-3\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+</tr>
+<tr>
+<td>T</td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(\alpha\)</span></td>
+<td align="center"><span class="math">\(-3\alpha\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>What this results in is one less free parameter. This has the the effect of branch lengths being measured in expected number of substitutions per site, which is what we want. This means that all substitution models lose one degree of freedom. </p>
+<ul>
+<li>JC69: 0 free parameters.</li>
+<li>K2P: 1 free parameter, <span class="math">\(K = \frac{\alpha}{\beta}\)</span> (the transition/ transversion ratio). </li>
+<li>HKY: 4 free parameters. 1 from K above, 3 from the 3 <span class="math">\(\pi\)</span> that we would need to know in order to know the last <span class="math">\(\pi\)</span></li>
+</ul>
+<h2>Phylogenetic Likelihood Ingredients</h2>
+<ol>
+<li>Phylogenetic tree topology/ branching order <span class="math">\(\tau\)</span></li>
+<li>Vector of branch length <span class="math">\(\vec{t} = (t_{1}, t_{2}, t_{3}, ...)\)</span></li>
+<li>Substitution model with substitution matrix <span class="math">\(Q = Q(\vec{\theta})\)</span>, where <span class="math">\(\theta\)</span> are free parameters.</li>
+</ol>
+<p>If we are given the above ingredients, we can compute the likelihood like so: </p>
+<div class="math">$$L(\tau,\vec{t},\vec{\theta}) =  \sqcap^{n}_{i=1}L_{i} (\tau,\vec{t},\vec{\theta})$$</div>
+<p><strong>Phylogenetic maximum likelihood</strong> returns a <span class="math">\((\hat{\tau},\hat{\vec{t}},\hat{\vec{\theta}})\)</span> that maximizes <span class="math">\(L(\tau,\vec{t},\vec{\theta})\)</span></p>
+<h2>Issues</h2>
+<p>The ML (maximum likelihood here, not machine learning) method is computationally expensive. The algorithm searches for all possible tree (like parsimony), but it also compute the likelihood multiple times to optimize over the branch lengths <span class="math">\(\vec{t}\)</span> and substitution parameters <span class="math">\(\vec{\theta}\)</span>, making it much more expensive computationally than parsimony. </p>
+<h2>Why do we care?</h2>
+<ol>
+<li>ML is one of the most efficient way to extract information from the data. That means ML phylogenies are more likely to be the "true" tree. . </li>
+<li>Likelihood framework allows us to estimate evolutionary model parameters in addition to the phylogeny, it gives us more answers. </li>
+<li>Likelihood-based methods allow us to compare models. E.g. we can compare a molecular clock vs no molecular clock model. </li>
+</ol>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+    
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>	
+      
+      <h3 class="blogMeta">By <a href="#">Cao-chau Vu</a>, Category: <a href="/category/lecture-notes.html">Lecture Notes</a></h3>
+    
+    </div><!-- end #blogItem -->
+				
+				<!-- end #content -->
+  
+  </div><!-- end #mainContent -->
+
+<div class="clearfloat"></div>
+
+  <div id="footer">
+  
+    <p><a href="http://css4free.com/" title="free CSS web site designs">Free CSS Gallery</a></p>
+    <p>Proudly powered by <a href="http://getpelican.com">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+  </div><!-- end #footer -->
+
+</div><!-- end #container -->
+</body>
+</html>
