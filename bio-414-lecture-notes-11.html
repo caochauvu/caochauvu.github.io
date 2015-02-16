@@ -99,8 +99,8 @@ $$</div>
 <div class="math">$$=\pi_{A}P_{AG}(t_{1}+t_{2}) = \pi_{G}P_{GA}(t_{1}+t_{2})$$</div>
 <p>The above derivation shows that the root is not identifiable. What that results in is trees that can have similar likelihood as long as total branch length is the same. E.g. even if you were to switch branch length (t_{1} and t_{2}), the tree would have same likelihood even if it can be said to be the opposite tree. An unrooted tree would also have the same likelihood (take notice last one is not in Newick's tree format). </p>
 <div class="math">$$(A: t_{1}, G: t_{2})X = (A: t'_{1}, G: t'_{2})X = \frac{t_{1}+t_{2}}{A\ \ \ \ \ \ \ \ \ \ \ G}$$</div>
-<p><strong>Q:</strong> How do we get terms like P_{AG}(t)?</p>
-<p><strong>A:</strong> THey are computable for a given substitution model. The one under the JC model would be: <span class="math">\(Pr_{AG} = \frac{1}{4} (1-e^{-4 \alpha t})\)</span></p>
+<p><strong>Q:</strong> How do we get terms like <span class="math">\(P_{AG}(t)\)</span>?</p>
+<p><strong>A:</strong> They are computable for a given substitution model. The one under the JC model would be: <span class="math">\(Pr_{AG} = \frac{1}{4} (1-e^{-4 \alpha t})\)</span></p>
 <h3>Likelihood of the Whole Alignment</h3>
 <p>That was just the 2 taxa case at one site, what if we wanted it for a whole alignment? </p>
 <div class="math">$$
