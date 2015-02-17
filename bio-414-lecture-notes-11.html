@@ -84,7 +84,7 @@
 <h2>Maximum Likelihood Phylogenetics Examples</h2>
 <h3>A 2 Taxa Case</h3>
 <p>If we have one ancestor (X, for having unknown base X) with two descendants (A,G) with corresponding time (<span class="math">\(t_{1}, t_{2}\)</span>), that is: </p>
-<div class="math">$$(A: t_{1}, G: t_{2})X$$</div>
+<div class="math">$$(A: t_{1},G:t_{2})X$$</div>
 <p>The calculations would be like so: </p>
 <div class="math">$$
 L = 
@@ -137,16 +137,16 @@ Pr\begin{pmatrix}
 A\\G \\G 
 \end{pmatrix}
 =
-\sum_{x}\sum_{y}pi_{X}P_{XA}(t_{1})P_{XY}(t_{2})P_{YG}(t_{3})P_{YG}(t_4)
+\sum_{x}\sum_{y}\pi_{X}P_{XA}(t_{1})P_{XY}(t_{2})P_{YG}(t_{3})P_{YG}(t_4)
 $$</div>
-<div class="math">$$= [time\ reversible] = \sum_{x}\sum_{y}pi_{A}P_{AX}(t_{1})P_{XY}(t_{2})P_{YG}(t_{3})P_{YG}(t_4)$$</div>
+<div class="math">$$= [time\ reversible] = \sum_{x}\sum_{y}\pi_{A}P_{AX}(t_{1})P_{XY}(t_{2})P_{YG}(t_{3})P_{YG}(t_4)$$</div>
 <div class="math">$$= \sum_{y} \pi_{A} P_{AY}(t_{1}+t_{2}) P_{YG}(t_{3}) P_{YG}(t_4)$$</div>
 <div class="math">$$= \sum_{y} \pi_{Y} P_{YA}(t_{1}+t_{2}) P_{YG}(t_{3}) P_{YG}(t_4)$$</div>
-<p>Like with the 2 taxa case, the (t_{1}+t_{2}) shows that only the unrooted tree is identifiable. </p>
+<p>Like with the 2 taxa case, the (<span class="math">\(t_{1}+t_{2}\)</span>) shows that only the unrooted tree is identifiable. </p>
 <h2>Degrees of Freedom</h2>
 <p>In practice, we can constrain substitution matrices so that branches are kept identifiable. E.g. we can set <span class="math">\(\alpha = 1\)</span> in Jukes-Cantor model. It turns out that there is a more universal constant. </p>
 <div class="math">$$\sum_{x} \frac{1}{4}x(-3\alpha) = -1$$</div>
-<div class="math">$$\sum_{x} \pi_{x} q_{xx} = -1 d$$</div>
+<div class="math">$$\sum_{x} \pi_{x} q_{xx} = -1$$</div>
 <p>-1 x # of expected substitution of branch length ID. </p>
 <div class="math">$$Q = \{q_{xy}\}$$</div>
 <table>
