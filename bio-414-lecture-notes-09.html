@@ -84,7 +84,7 @@
 <ol>
 <li>For each candidate tree <span class="math">\(\tau\)</span>, find branch length that minimizes:<ul>
 <li><span class="math">\(\sum_{i &lt; j} (d_{ij}-e_{ij})^2\)</span></li>
-<li>Where <span class="math">\(d_{ij}\)</span> is the observed (pairwise) distance (calculated from distance matrix) and <span class="math">\(e_{ij}\)</span> is the (expected) distance (sum of branch lengths on tree linking the two species i and j).</li>
+<li>Where <span class="math">\(d_{ij}\)</span> is the expected distance calculated from the sum of the branch length and <span class="math">\(e_{ij}\)</span> is the tree distance calculated from distance matrix.</li>
 </ul>
 </li>
 <li>We call this minimum number <span class="math">\(L(\tau)\)</span>. Then we find the small tree with the smallest <span class="math">\(L(\tau)\)</span>.</li>
@@ -124,7 +124,7 @@
 <blockquote>
 <p>Unaligned Sequences <span class="math">\(\rightarrow\)</span> Guide Tree <span class="math">\(\rightarrow\)</span> Aligned Sequences <span class="math">\(\rightarrow\)</span> Final Tree</p>
 </blockquote>
-<p>The problem lies in that the final tree is often too close to the guide tree. So if your guide tree is incorrect, your final tree will be too. a better approach is simultaneous alignment and phylogeny estimation, but this is computationally expensive.</p>
+<p>The problem lies in that the final tree is often too close to the guide tree. So if your guide tree is incorrect, your final tree will be too. A better approach is simultaneous alignment and phylogeny estimation, but this is computationally expensive.</p>
 <h2>Maximum Parsimony</h2>
 <p>Each site receives a score under each tree. Score is defined as minimum # of substitutions required to explain site data.</p>
 <p>Imagine an unrooted tree like so:</p>

@@ -146,7 +146,7 @@ $$</div>
 <h2>Least-Squares Methods</h2>
 <p>For each candidate tree <span class="math">\(\tau\)</span>, find branch length that minimizes </p>
 <div class="math">$$\sum_{i &lt; j} (d_{ij}-e_{ij})^2$$</div>
-<p>Where <span class="math">\(d_{ij}\)</span> is the observed (pairwise) distance (calculated from distance matrix) and <span class="math">\(e_{ij}\)</span> is the (expected) distance (sum of branch lengths on tree linking the two species i and j).</p>
+<p>Where <span class="math">\(d_{ij}\)</span> is the expected distance calculated from the sum of the branch length and <span class="math">\(e_{ij}\)</span> is the tree distance calculated from distance matrix.</p>
 <p>We'll call this minimum <span class="math">\(L(\tau)\)</span>. So our goal is to get the minimum <span class="math">\(L(\tau)\)</span>.</p>
 <h2>Minimum evolution</h2>
 <p>Same as in L-squared method, you find smallest <span class="math">\(L(\tau)\)</span></p>
