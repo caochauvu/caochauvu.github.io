@@ -112,11 +112,13 @@
 <p>They are used when speed is important. Two common applications: </p>
 <ol>
 <li>It's a good starting place from which we can refine and initialize other methods.</li>
-<li>Multiple sequence alignment algorithms are (usually) done through several pairwise alignment by <strong>progressive alignment</strong>. 
-    a. Align of all pairs of sequences.
-    b. Compute distance from pairwise alignment (JC, normalized alignment score, etc.)
-    c. Build a guide tree from distances. ClustalW uses NJ.
-    d. Using the tree, progressively add neighboring sequences to the alignment.You do need to modify scoring a little.</li>
+<li>Multiple sequence alignment algorithms are (usually) done through several pairwise alignment by <strong>progressive alignment</strong>. <ol>
+<li>Align of all pairs of sequences.</li>
+<li>Compute distance from pairwise alignment (JC, normalized alignment score, etc.).</li>
+<li>Build a guide tree from distances. ClustalW uses NJ.</li>
+<li>Using the tree, progressively add neighboring sequences to the alignment.You do need to modify scoring a little.</li>
+</ol>
+</li>
 </ol>
 <p><strong>Most phylogenetic analyses look like this:</strong></p>
 <blockquote>
