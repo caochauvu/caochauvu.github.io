@@ -102,36 +102,36 @@
 </li>
 </ul>
 <h2>Genetic Drifts and Selection</h2>
+<p><strong>Neutral mutations:</strong></p>
 <ul>
-<li><strong>Neutral mutations:</strong><ul>
 <li>Can take over the whole population or disappear.</li>
 <li>Happens through random mutations and fluctuations.</li>
-<li>You have to account for:</li>
+<li>You have to account for:<ul>
 <li>Linkage, because even if the mutation is neutral, then it might be hitchhiking.</li>
 <li>Population structure.</li>
 <li>Recombination.</li>
 <li>Selection.</li>
 </ul>
 </li>
-<li><strong>Wright-Fisher model:</strong><ul>
+</ul>
+<p><strong>Wright-Fisher model:</strong></p>
+<ul>
 <li>Wright was an American geneticist.</li>
 <li>Fisher was a British geneticist who also was a statistician. </li>
 <li>A mathematical framework that was called <strong>modern evolutionary synthesis</strong></li>
 <li>Random sampling.</li>
-<li>N is population size. u is rate of mutation in a population.</li>
-<li>Probability of neutral mutation fixating is <span class="math">\(\frac{1}{N} = \mu\)</span></li>
-<li>Probability of new mutation in population is <span class="math">\(\frac{N}{\mu}\)</span>.</li>
-<li>Therefore in idealized situation, fixation rate = mutation rate.</li>
+<li>N is population size. <span class="math">\(\mu\)</span> is rate of mutation in a population.</li>
+<li>Probability of neutral mutation fixating (fixation) is <span class="math">\(\frac{1}{N} = \mu\)</span></li>
+<li>Probability of new mutation in population is <span class="math">\(N*\mu\)</span>.</li>
+<li>Therefore in an idealized neutral situation, fixation rate = mutation rate.</li>
 <li>Most <em>de novo</em> neutral mutation don't get fixated.</li>
 </ul>
-</li>
-<li><strong>Selection:</strong><ul>
+<p><strong>Selection:</strong></p>
+<ul>
 <li>Fixation rate/ probability is then <span class="math">\(\frac{1-3^{-2s}}{1-e^{-2Ns}}\)</span></li>
 <li>Where <span class="math">\(s\)</span> is selection coefficient.</li>
 <li>Advantageous mutations (<span class="math">\(s&gt;&gt;1\)</span>) have higher probability of fixation than neutral mutation.</li>
 <li>Deleterious mutations (<span class="math">\(s&lt;&lt;1\)</span>) have lower probability of fixation than neutral mutation.</li>
-</ul>
-</li>
 </ul>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
