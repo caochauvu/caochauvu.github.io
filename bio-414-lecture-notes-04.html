@@ -119,7 +119,7 @@
 <p>Has two parts.</p>
 <ol>
 <li>Scoring matrix:<ul>
-<li>With elements S(a,b)</li>
+<li>With elements <span class="math">\(S(a,b)\)</span></li>
 <li>a and b are two nucleotides/ aa. </li>
 <li>For nucleotides a simple matrix works well.  </li>
 <li>E.g. A 1 if the nucleotides match, 0 if they don't. </li>
@@ -127,10 +127,10 @@
 </ul>
 </li>
 <li>Gap penalty function: <ul>
-<li>W(l)</li>
-<li>Penalty of a gap of length L.</li>
-<li>Simplest gap penalty function is linear: W(l) = gl</li>
-<li>g is the penalty for a gap of length 1.</li>
+<li><span class="math">\(W(l)\)</span></li>
+<li>Penalty for a gap of length <span class="math">\(L\)</span>.</li>
+<li>Simplest gap penalty function is linear: <span class="math">\(W(l) = gl\)</span>.</li>
+<li><span class="math">\(g\)</span> is the penalty for a gap of length 1.</li>
 <li>When doing parallel sequencing, there is no gap in the same position of both alignment because we're comparing indels. The sequences have to be parallel to each other so one insertion is another's deletion.</li>
 </ul>
 </li>
