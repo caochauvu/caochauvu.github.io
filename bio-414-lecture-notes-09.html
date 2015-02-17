@@ -84,10 +84,10 @@
 <ol>
 <li>For each candidate tree <span class="math">\(\tau\)</span>, find branch length that minimizes:<ul>
 <li><span class="math">\(\sum_{i &lt; j} (d_{ij}-e_{ij})^2\)</span></li>
-<li>Where <span class="math">\(d_{ij}\)</span> is the observed distance and <span class="math">\(e_{ij}\)</span> is the (expected) theoretical tree distance.</li>
+<li>Where <span class="math">\(d_{ij}\)</span> is the observed (pairwise) distance (calculated from distance matrix) and <span class="math">\(e_{ij}\)</span> is the (expected) distance (sum of branch lengths on tree linking the two species i and j).</li>
 </ul>
 </li>
-<li>We call this minimum number <span class="math">\(L(\tau)\)</span>. Then we find the small tree with the smallest <span class="math">\(L(\tau)\)</span></li>
+<li>We call this minimum number <span class="math">\(L(\tau)\)</span>. Then we find the small tree with the smallest <span class="math">\(L(\tau)\)</span>.</li>
 </ol>
 <h2>Minimum Evolution</h2>
 <ol>
