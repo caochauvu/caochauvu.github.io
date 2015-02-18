@@ -156,7 +156,7 @@
 </ul>
 <p><strong>BLAST:</strong> Stands for Basic Local Alignment Search Tool. BLAST is use to find a match for our query sequence in a database. </p>
 <p><strong>E-value:</strong> Expected # of database sequence matches to our query sequence, with a score of <span class="math">\(\geq S^{*}\)</span>. </p>
-<p>Get picture. </p>
+<p><img alt="E-value Calculations" src="/images/20150218_0722055_e_value_.png" /></p>
 <ul>
 <li>We would simulate random sequence that we can run through BLAST.</li>
 <li>If <span class="math">\(S^{*}\)</span> is a score of a "good" alignment, then numbers (<span class="math">\(n_{1},...n_{1000}\)</span>) should be low (mostly zeros). </li>
@@ -166,7 +166,8 @@
 <div class="math">$$D = \frac{\#\ of\ polymorphic\ sites}{\#\ of\ total\ sites}$$</div>
 <p><strong>Jukes-Cantor Distance:</strong></p>
 <div class="math">$$\hat{d} = - \frac{3}{4} \ln (1-\frac{4}{3}D)$$</div>
-<p>Get the side notes. </p>
+<p>Take notice that as time progress, the expected (calculated above) and observed distance will diverge. </p>
+<p><img alt="Expected vs. Observed Distance" src="/images/20150218_072120_expected_vs_observed_distance.png" /></p>
 <p><strong>Subsitution models:</strong></p>
 <ul>
 <li>What is needed for the exam is to be able to understand nested relationships among the models. </li>
@@ -185,7 +186,8 @@
 <li>Rooted tree. </li>
 <li>Unrooted trees. </li>
 </ul>
-<p>You should be able to use root a tree (get picture from lecture). </p>
+<p>You should be able to use root a tree like below. </p>
+<p><img alt="Rooting a Tree" src="/images/20150218_072131_rooting_a_tree.png" /></p>
 <p>Be able to recognize splits. E.g. in picture above {1,2,3}, {4,5,6,7} is a split in the tree on the left, whereas {1,2,6}, {3,4,5,7}.</p>
 <h3>Distance-Based Phylogenetic Reconstruction</h3>
 <p><strong>Least-square Method:</strong> Returns tree with branch length that minimizes:</p>
