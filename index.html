@@ -80,7 +80,7 @@
       
       <p>20150217_140000_bio_414_lecture_notes_13</p>
 <h1>Notes</h1>
-<p>All images below are taken from a Biology 414 lecture by Dr. Vladimir Minin at University of Washington. </p>
+<p>All images below are taken from a Biology 414 lecture by Dr. Vladimir Minin at University of Washington. With notes taken from past lecture notes added to supplement review. </p>
 <h2>Rate Heterogeneity</h2>
 <h3>Models with Rate Heterogeneity</h3>
 <p>There are sites where mutations do arise, but some sites become fixed and some don't. That is to say, different sites will tend to have different evolution rates, especially if they are far apart (think of recombination distance). </p>
@@ -124,23 +124,104 @@
 <h2>Test Review</h2>
 <h3>Basic Genetics</h3>
 <p><strong>Central dogma:</strong> Organization of genetic information, <span class="math">\(DNA \rightarrow RNA \rightarrow Protein\)</span>.</p>
-<p><strong>Sequencing Technologies:</strong> The automation and parallelization of individual steps that gives us the sequence of an organism. </p>
-<p><strong>Genetic Terminology:</strong> </p>
 <ul>
-<li>Locus(loci) </li>
-<li>Markers </li>
-<li>Allele </li>
-<li>Polymorphic loci</li>
-<li>Types of mutation <ul>
-<li>Point mutations</li>
-<li>Transitions</li>
-<li>Transversions</li>
+<li>Transcription:<ul>
+<li>In prokaryotes, whole RNA molecule translated</li>
+<li>In eukaryotes, there are introns (removed during RNA splicing) and exons (what remains in mature RNA).</li>
+<li>Allows for multiple possible products (proteins) from one gene.</li>
+<li>So central dogma should also show this multiple possible products. Signified by (s) above.</li>
 </ul>
 </li>
-<li>Indels</li>
-<li>Microsatellites. </li>
+<li>Translation:<ul>
+<li>tRNA form from 3 mRNA bases at a time.</li>
+<li>These 3 bases when read together are called codons.</li>
+<li>There is redundancy in the system.</li>
+<li>One AA can be coded from multiple codons.</li>
+<li>Allow neutral mutation.</li>
+<li>3 stop codons, one start codons.</li>
+<li>Coding sequence (CDS) is also called open reading frame (ORF).</li>
+<li>Some mutations cause change in ORF, which changes AA composition and therefore the protein.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Sequencing Technologies:</strong> The automation and parallelization of individual steps that gives us the sequence of an organism. </p>
+<p>Sanger</p>
+<ul>
+<li>A series of starts and stops.</li>
+<li>Break DNA into smaller "reads" (500-600)</li>
+<li>In a tube mix:<ul>
+<li>Template sequence: The thing you want to sequence.</li>
+<li>Primer: A short known sequence complementary to portion of template.</li>
+<li>DNA polymerase (enzyme): Will extend primer by adding nucleotides to it.</li>
+<li>Free nucleotide bases (dNTPs/ddNTPs): </li>
+<li>dNTPs are what the DNA polymerase add to the primer to extend it. </li>
+<li>The ddNTPs will terminate the extending by a stopping the polymerase reaction. </li>
+<li>The ddNTPs have a fluorescent tags that machines can read in order to sequence the genome.</li>
+</ul>
+</li>
+</ul>
+<p>Next-Gen</p>
+<ul>
+<li>Break the long DNA into even shorter reads<ul>
+<li>Use to be less than 50 bases but is now larger and still increasing, not as much as 500 though. </li>
+</ul>
+</li>
+<li>Sequence separately and then match up overlapping regions, and assemble the sequence in order (genome assembly) <ul>
+<li>Usually about 30 bases overlapping is good, 10 is sufficient though.</li>
+</ul>
+</li>
+<li><strong>Pros:</strong><ul>
+<li>Ability to sequence a lot of small chunks in parallel.</li>
+<li>You don't need a primer.</li>
+</ul>
+</li>
+<li><strong>Cons:</strong><ul>
+<li>Chunks are small, higher chance of inaccuracy.</li>
+<li>More difficult to align.</li>
+<li>Being done in parallel in one test tube, the reaction is less controlled and has higher rate of error (base wrongly attached). </li>
+</ul>
+</li>
+</ul>
+<p><strong>Genetic Terminology:</strong> </p>
+<ul>
+<li>Locus(loci): Locus is a location in the genome-usually small DNA segment, but could be as small as one nucleotide or as large as a coding region/ gene</li>
+<li>Markers: A loci where there is variation in the population.</li>
+<li>Allele: Different version of same gene (classical definition), could also refer to different variation of locus (e.g. introns).</li>
+<li>Polymorphic loci: A locus where where there is multiple alleles. A polymorphic site is one at which there is more than one type of base with a considerable frequency in the population. Polymorphic sites are informative for the construction of phylogenetic trees because they provide information about shared common ancestors. Conversely, point mutations and invariant sites are not informative for the construction of phylogenetic trees.</li>
+<li>Types of mutation:<ul>
+<li>Point mutations: Replacement of single nucleotide by another one.</li>
+<li>Transitions: same class, e.g. purine-&gt;purine.</li>
+<li>Transversions: different class, e.g. purine-&gt;pyrimidine.</li>
+</ul>
+</li>
+<li>Indels: <ul>
+<li>Can cause frame shifts, usually resulting in a deleterious mutation.</li>
+<li>We typically use the term indel because we don't know which is ancestor strand. One sequence's insertion is another sequence's deletion.</li>
+</ul>
+</li>
+<li>Microsatellites: Repeated sequence of short motifs (e.g. <span class="math">\((AT)_{n}\)</span>)<ul>
+<li>The indels that occur here are special since they can result in more than the 4 typical alleles corresponded to the 4 nucleotides.</li>
+<li>Microsatellites in noncoding regions can occur in regulatory regions. They are usually conserved near promoter regions.</li>
+</ul>
+</li>
 </ul>
 <p><strong>Genetic drift and selection:</strong> Neutral mutations can fix in population due to drift. Selection changes the probability of fixation, which allows non-neutral mutations to fit more/ less frequently. </p>
+<p>Neutral Mutation: </p>
+<ul>
+<li>Can take over the whole population or disappear.</li>
+<li>Happens through random mutations and fluctuations.</li>
+<li>You have to account for:<ul>
+<li>Linkage, because even if the mutation is neutral, then it might be hitchhiking.</li>
+<li>Population structure.</li>
+<li>Recombination.</li>
+<li>Selection.</li>
+</ul>
+</li>
+</ul>
+<p>Fixation and Selection: </p>
+<p>Probability of fixation: <span class="math">\(\frac{1}{N} = \mu\)</span></p>
+<p>Probability of new mutation in population: <span class="math">\(N * \mu\)</span></p>
+<p>Fixation rate with Selection: <span class="math">\(\frac{1-3^{-2s}}{1-e^{-2Ns}}\)</span></p>
 <h3>Sequence Alignment</h3>
 <p><strong>Sequence alignment:</strong> Align homologous nucleotides or amino acids.</p>
 <ul>
@@ -156,12 +237,23 @@
 <li><strong>Smith-Waterson algorithm:</strong> Local alignment.</li>
 </ul>
 <p><strong>BLAST:</strong> Stands for Basic Local Alignment Search Tool. BLAST is use to find a match for our query sequence in a database. </p>
-<p><strong>E-value:</strong> Expected # of database sequence matches to our query sequence, with a score of <span class="math">\(\geq S^{*}\)</span>. </p>
-<p><img alt="E-value Calculations" src="/images/20150218_0722055_e_value_.png" /></p>
 <ul>
-<li>We would simulate random sequence that we can run through BLAST.</li>
-<li>If <span class="math">\(S^{*}\)</span> is a score of a "good" alignment, then numbers (<span class="math">\(n_{1},...n_{1000}\)</span>) should be low (mostly zeros). </li>
+<li>
+<p><strong>Raw score</strong> = <span class="math">\(\sum\)</span> = match + mismatch - gap score </p>
+</li>
+<li>
+<p><strong>Bit Score:</strong> A normalized raw score.</p>
+</li>
 </ul>
+<p><strong>E-value:</strong> Most important quantity to determine significance of the best database hits.</p>
+<ul>
+<li>Expected # of database sequences that will match a random query sequence with a score <span class="math">\(\geq S^{*}\)</span> (observed score). </li>
+<li>Higher <span class="math">\(S^{*} \rightarrow\)</span> lower E-value. </li>
+<li>Random sequences of the same length as the query sequence.</li>
+<li>If <span class="math">\(S^{*}\)</span> is a score of a "good" alignment, then numbers (<span class="math">\(n_{1},...n_{1000}\)</span>) should be low (mostly zeros). </li>
+<li>In practice, 10^-5 is the threshold for E-value significance.</li>
+</ul>
+<p><img alt="E-value Calculations" src="/images/20150218_0722055_e_value_.png" /></p>
 <h3>Evolutionary Distance</h3>
 <p><strong>Hamming Distance:</strong> A proportion of polymorphic sites.</p>
 <div class="math">$$D = \frac{\#\ of\ polymorphic\ sites}{\#\ of\ total\ sites}$$</div>
@@ -170,6 +262,39 @@
 <p>Take notice that as time progress, the expected (calculated above) and observed distance will diverge. </p>
 <p><img alt="Expected vs. Observed Distance" src="/images/20150218_072120_expected_vs_observed_distance.png" /></p>
 <p><strong>Subsitution models:</strong></p>
+<ul>
+<li>Single substitution: 1 change (A <span class="math">\(\rightarrow\)</span> C), 1 difference. <ul>
+<li>Ancestor: A</li>
+<li>Descendants: A, C</li>
+</ul>
+</li>
+<li>Multiple substitution: 2 changes (A <span class="math">\(\rightarrow\)</span> C <span class="math">\(\rightarrow\)</span> T) 1 difference. <ul>
+<li>Ancestor: A</li>
+<li>Descendants: A, T</li>
+<li>Keep in mind that there could be more than 2 changes, we can't observe them without other data.</li>
+</ul>
+</li>
+<li>Coincidental substitution: 2 changes (A <span class="math">\(\rightarrow\)</span> G, A <span class="math">\(\rightarrow\)</span> C), 1 difference.<ul>
+<li>Ancestor: A</li>
+<li>Descendants: G, C</li>
+</ul>
+</li>
+<li>Parallel substitution: 2 changes (A <span class="math">\(\rightarrow\)</span> C, A <span class="math">\(\rightarrow\)</span> C), no difference.<ul>
+<li>Ancestor: A</li>
+<li>Descendants: C, C</li>
+</ul>
+</li>
+<li>Convergent substitution: 3 changes (A <span class="math">\(\rightarrow\)</span> C <span class="math">\(\rightarrow\)</span> T, A <span class="math">\(\rightarrow\)</span> T), no difference.<ul>
+<li>Ancestor: A</li>
+<li>Descendants: T, T </li>
+</ul>
+</li>
+<li>Back substitution: 2 changes (A <span class="math">\(\rightarrow\)</span> C <span class="math">\(\rightarrow\)</span> A), no difference. <ul>
+<li>Ancestor: A</li>
+<li>Descendants: A, A</li>
+</ul>
+</li>
+</ul>
 <p><img alt="Substitution Models" src="/images/20150218_074019_substitution_models.png" /></p>
 <ul>
 <li>What is needed for the exam is to be able to understand nested relationships among the models. </li>
@@ -196,8 +321,26 @@
 <div class="math">$$\sum_{i&lt;j}(d_{ij}-e_{ij})^{2}$$</div>
 <p>Where <span class="math">\(d_{ij}\)</span> is the sequence distance and <span class="math">\(e_{ij}\)</span> is the tree distance.</p>
 <p><strong>Minimum Evolution Method:</strong> Uses least square to estimate a branch length for each tree, returns a tree with the minimum total (sum of all branch) length. </p>
-<p><strong>UPGMA:</strong>  An approximation (a faster way that returns close enough results) of least-square but with constraint of ultrametric trees (molecular clock). </p>
-<p><strong>NJ:</strong> An approximation (same as above) of minimum evolution with no constraints on branch length. </p>
+<p><strong>Q:</strong> Is searching trees when optimizing an objective function easy?</p>
+<p><strong>A:</strong> No, because there are too many possible trees when you have a lot of branches.</p>
+<p>In practice what people do is use algorithms that move from one tree to another using some local rearrangement</p>
+<p><strong>Connections between clustering and optimality based distance methods:</strong></p>
+<ol>
+<li>UPGMA tries to find least squared but ultrametric tree. An approximation (a faster way that returns close enough results) of least-square but with constraint of ultrametric trees (molecular clock). </li>
+<li>NJ tries to find the minimum evolution tree (makes no assumptions about evolutionary time, so doesn't make an ultrametric tree).  An approximation (same as above) of minimum evolution with no constraints on branch length. </li>
+</ol>
+<p><strong>Applications of distance-based methods:</strong></p>
+<p>They are used when speed is important. Two common applications: </p>
+<ol>
+<li>It's a good starting place from which we can refine and initialize other methods.</li>
+<li>Multiple sequence alignment algorithms are (usually) done through several pairwise alignment by <strong>progressive alignment</strong>. <ol>
+<li>Align of all pairs of sequences.</li>
+<li>Compute distance from pairwise alignment (JC, normalized alignment score, etc.).</li>
+<li>Build a guide tree from distances. ClustalW uses NJ.</li>
+<li>Using the tree, progressively add neighboring sequences to the alignment.You do need to modify scoring a little.</li>
+</ol>
+</li>
+</ol>
 <p><strong>Maximum Parsimony:</strong> Returns a phylogeny that has the minimum number of needed substitutions to explain the data given. </p>
 <p>Problems: </p>
 <ul>
@@ -206,11 +349,25 @@
 <li>Long-branch attraction, resulting from not being able to attach parameters (like branch length). It's statistically inconsistent. </li>
 </ul>
 <p><strong>Maximum Likelihood:</strong> Returns a combination of both the phylogeny and the parameters that made up the model that estimated the phylogeny. Maximize the probability of observing the given data. </p>
+<ol>
+<li>Phylogenetic tree topology/ branching order <span class="math">\(\tau\)</span></li>
+<li>Vector of branch length <span class="math">\(\vec{t} = (t_{1}, t_{2}, t_{3}, ...)\)</span></li>
+<li>Substitution model with substitution matrix <span class="math">\(Q = Q(\vec{\theta})\)</span>, where <span class="math">\(\theta\)</span> are free parameters.</li>
+</ol>
+<p>If we are given the above ingredients, we can compute the likelihood like so: </p>
+<div class="math">$$L(\tau,\vec{t},\vec{\theta}) =  \sqcap^{n}_{i=1}L_{i} (\tau,\vec{t},\vec{\theta})$$</div>
+<p><strong>Phylogenetic maximum likelihood</strong> returns a <span class="math">\((\hat{\tau},\hat{\vec{t}},\hat{\vec{\theta}})\)</span> that maximizes <span class="math">\(L(\tau,\vec{t},\vec{\theta})\)</span></p>
 <p>Problems: </p>
 <ul>
-<li>Computationally costly. </li>
+<li>The ML (maximum likelihood here, not machine learning) method is computationally expensive. The algorithm searches for all possible tree (like parsimony), but it also compute the likelihood multiple times to optimize over the branch lengths <span class="math">\(\vec{t}\)</span> and substitution parameters <span class="math">\(\vec{\theta}\)</span>, making it much more expensive computationally than parsimony.</li>
 <li>Model needs to be correctly specified (and we can never be completely sure of our parameters for the model we give ML). </li>
 </ul>
+<p>Why do we care?</p>
+<ol>
+<li>ML is one of the most efficient way to extract information from the data. That means ML phylogenies are more likely to be the "true" tree. . </li>
+<li>Likelihood framework allows us to estimate evolutionary model parameters in addition to the phylogeny, it gives us more answers. </li>
+<li>Likelihood-based methods allow us to compare models. E.g. we can compare a molecular clock vs no molecular clock model. </li>
+</ol>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
