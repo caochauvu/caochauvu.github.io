@@ -187,7 +187,11 @@
 <li>Locus(loci): Locus is a location in the genome-usually small DNA segment, but could be as small as one nucleotide or as large as a coding region/ gene</li>
 <li>Markers: A loci where there is variation in the population.</li>
 <li>Allele: Different version of same gene (classical definition), could also refer to different variation of locus (e.g. introns).</li>
-<li>Polymorphic loci: A locus where where there is multiple alleles. A polymorphic site is one at which there is more than one type of base with a considerable frequency in the population. Polymorphic sites are informative for the construction of phylogenetic trees because they provide information about shared common ancestors. Conversely, point mutations and invariant sites are not informative for the construction of phylogenetic trees.</li>
+<li>Polymorphic loci: A locus where where there is multiple alleles. A polymorphic site is one at which there is more than one type of base with a considerable frequency in the population. <ul>
+<li>Polymorphic sites are informative for the construction of phylogenetic trees because they provide information about shared common ancestors. Conversely, point mutations and invariant sites are not informative for the construction of phylogenetic trees.</li>
+<li>Differ from markers is that polymorphic loci is where we know there are variation in a population, but marker is where we don't observe it in our sample (sampling error). Keep in mind this might not be a universal definition. </li>
+</ul>
+</li>
 <li>Types of mutation:<ul>
 <li>Point mutations: Replacement of single nucleotide by another one.</li>
 <li>Transitions: same class, e.g. purine-&gt;purine.</li>
@@ -247,7 +251,11 @@
 </ul>
 <p><strong>E-value:</strong> Most important quantity to determine significance of the best database hits.</p>
 <ul>
-<li>Expected # of database sequences that will match a random query sequence with a score <span class="math">\(\geq S^{*}\)</span> (observed score). </li>
+<li>Expected # of database sequences that will match a random query sequence with a score <span class="math">\(\geq S^{*}\)</span> (observed score).<ul>
+<li>You create a random sequence of the same length <span class="math">\(n\)</span> times and run it against the database.</li>
+<li>If it has a higher <span class="math">\(S^{*}\)</span> (which can be raw score, bit score or some other kind of adjusted score) then it counts toward the E- value.  </li>
+</ul>
+</li>
 <li>Higher <span class="math">\(S^{*} \rightarrow\)</span> lower E-value. </li>
 <li>Random sequences of the same length as the query sequence.</li>
 <li>If <span class="math">\(S^{*}\)</span> is a score of a "good" alignment, then numbers (<span class="math">\(n_{1},...n_{1000}\)</span>) should be low (mostly zeros). </li>
