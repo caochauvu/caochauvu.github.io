@@ -346,7 +346,7 @@
 <h3>Distance-Based Phylogenetic Reconstruction</h3>
 <p><strong>Least-square Method:</strong> Returns tree with branch length that minimizes:</p>
 <div class="math">$$\sum_{i&lt;j}(d_{ij}-e_{ij})^{2}$$</div>
-<p>Where <span class="math">\(d_{ij}\)</span> is the sequence distance and <span class="math">\(e_{ij}\)</span> is the tree distance.</p>
+<p>Where <span class="math">\(d_{ij}\)</span> is the sequence distance (raw score/bit score/etc.) and <span class="math">\(e_{ij}\)</span> is the tree distance (from model used, e.g. JC69, etc.). </p>
 <p><strong>Minimum Evolution Method:</strong> Uses least square to estimate a branch length for each tree, returns a tree with the minimum total (sum of all branch) length. </p>
 <p><strong>Q:</strong> Is searching trees when optimizing an objective function easy?</p>
 <p><strong>A:</strong> No, because there are too many possible trees when you have a lot of branches.</p>
@@ -388,6 +388,13 @@
 <ul>
 <li>The ML (maximum likelihood here, not machine learning) method is computationally expensive. The algorithm searches for all possible tree (like parsimony), but it also compute the likelihood multiple times to optimize over the branch lengths <span class="math">\(\vec{t}\)</span> and substitution parameters <span class="math">\(\vec{\theta}\)</span>, making it much more expensive computationally than parsimony.</li>
 <li>Model needs to be correctly specified (and we can never be completely sure of our parameters for the model we give ML). </li>
+</ul>
+<p><strong>Free Parameters</strong></p>
+<p>When the Q matrix is constrained, like in maximum likelihood or ultrametric trees. If the Q matrix isn't constrained, you would add 1 to all of the below.</p>
+<ul>
+<li>JC69: 0 free parameters.</li>
+<li>K2P: 1 free parameter, <span class="math">\(K = \frac{\alpha}{\beta}\)</span> (the transition/ transversion ratio). </li>
+<li>HKY: 4 free parameters. 1 from K above, 3 from the 3 <span class="math">\(\pi\)</span> that we would need to know in order to know the last <span class="math">\(\pi\)</span></li>
 </ul>
 <p>Why do we care?</p>
 <ol>
