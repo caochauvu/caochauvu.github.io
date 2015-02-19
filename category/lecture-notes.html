@@ -145,6 +145,11 @@
 </li>
 </ul>
 <p><strong>Sequencing Technologies:</strong> The automation and parallelization of individual steps that gives us the sequence of an organism. </p>
+<ul>
+<li>Parallelization allows you to run 4 million nucleotides at a time instead of just 40 (if 40 was read length).</li>
+<li>Allows us to do large scale sequencing. </li>
+<li>Parallelization however is (slightly) less accurate for the same price, however if you do pay more you can increase depth of sequencing and reduce error and allow estimation of error rate. </li>
+</ul>
 <p>Sanger</p>
 <ul>
 <li>A series of starts and stops.</li>
@@ -306,20 +311,34 @@
 <p><img alt="Substitution Models" src="/images/20150218_074019_substitution_models.png" /></p>
 <ul>
 <li>What is needed for the exam is to be able to understand nested relationships among the models. </li>
+<li>In addition to HKY we have F84 which is similar but with a closed formula model that is faster for pairwise alignment. </li>
 <li>E.g. If we artificially make <span class="math">\(\pi_{A} = \pi_{G} = \pi_{C} = \pi_{T}\)</span> in HKY model, it becomes K2P model. </li>
 </ul>
 <h3>Phylogenetic Trees</h3>
 <p><strong>Terms:</strong></p>
 <ul>
-<li>Nodes (internal &amp; tips). </li>
-<li>Branches/ edges.</li>
-<li>Branch length.</li>
+<li>Nodes (internal &amp; tips): Represent a clade and an ancestor if not terminal<ul>
+<li>Internal: Represent a hypothetical ancestor.</li>
+<li>Root: Has no ancestors on tree, is common ancestor to all other nodes on tree</li>
+</ul>
+</li>
+<li>Branches/ edges:<ul>
+<li>Can be weighted or unweighted, where weighted is representative of a value (e.g. time, # of mutations).</li>
+<li>Number of branches attached to a node is called node's degree.</li>
+<li>A terminal node will have be degree one (one ancestor).</li>
+<li>A non-root ancestor with two descendants will be degree three (two descendants, one ancestor).</li>
+</ul>
+</li>
 <li>Newick format.</li>
-<li>Cladogram. </li>
-<li>Additive tree.</li>
-<li>Ultrametric tree. </li>
-<li>Rooted tree. </li>
-<li>Unrooted trees. </li>
+</ul>
+<p>Branch lengths can also be stored in the file format. Say we have a tree with Z as an ancestor X and Y who are each ancestor to A/B and C/D respectively. With different edge lengths (mutation rates) of .2, .1, .25, .05 respectively for A,B,C,D and an edge length of .3 and .21 respectively for the two internal nodes, it would be represented as:
+((A:0.2,B:0.1)X:0.3,(C:0.25,D:0.05)Y:0.21)Z</p>
+<ul>
+<li>Cladogram: Tree where the branch (edge) length doesn't matter.</li>
+<li>Additive tree:  A tree with meaningful branch (edge) length. Usually branch length is a representation of "amount of evolutionary change" (most of the time it's expected # of substitutions per site).</li>
+<li>Ultrametric tree:  An additive tree with a specific constraint on branch lengths. It's like a additive tree that looks like a cladogram in terms of all tips node being the same distance from root. Good for algorithmic purposes.</li>
+<li>Rooted tree: Trees where special node (root) that is an ancestor to other nodes. Root node immediately defines direction of evolution from root to terminal nodes (usually left to right or bottom to top).</li>
+<li>Unrooted trees: Similar to rooted tree but with no root node/ ancestor. </li>
 </ul>
 <p>You should be able to use root a tree like below. </p>
 <p><img alt="Rooting a Tree" src="/images/20150218_072131_rooting_a_tree.png" /></p>
